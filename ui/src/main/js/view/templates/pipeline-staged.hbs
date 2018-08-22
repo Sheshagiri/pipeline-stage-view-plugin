@@ -45,13 +45,18 @@
             <div class="cell-box">
               <div class="jobName"><span class="badge"><a href="{{this.id}}">{{this.name}}</a></span></div>
               <div class="stage-start-box">
+                {{#if this._links.changesets}}
                 <div class="stage-start-time">
                   <div class="date">{{formatDate this.startTimeMillis 'month'}} {{formatDate this.startTimeMillis 'dom'}}</div>
                   <div class="time">{{formatDate this.startTimeMillis 'time'}}</div>
                 </div>
-                {{#if this._links.changesets}}<div class="changeset-box" cbwf-controller="run-changesets" objectUrl="{{this._links.changesets.href}}"></div>
+                <div class="changeset-box" cbwf-controller="run-changesets" objectUrl="{{this._links.changesets.href}}"></div>
                 {{else}}
-                <div class="changeset-box no-changes">No Changes</div>
+                <div class="stage-start-time">
+                  <div class="date">{{formatDate this.startTimeMillis 'month'}} {{formatDate this.startTimeMillis 'dom'}}</div>
+                  <div class="time">{{formatDate this.startTimeMillis 'time'}}</div>
+                </div>
+                <div class="changeset-box no-changes">No Changes Found.</div>
                 {{/if}}
                 <div class="stage-end-icons extension-dock">
                   {{#if this._links.artifacts}}
