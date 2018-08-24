@@ -47,16 +47,27 @@
               <div class="stage-start-box">
                 {{#if this._links.changesets}}
                 <div class="stage-start-time">
-                  <div class="date">{{formatDate this.startTimeMillis 'month'}} {{formatDate this.startTimeMillis 'dom'}}</div>
-                  <div class="time">{{formatDate this.startTimeMillis 'time'}}</div>
+                  <div class="date">Build started at</div>
+                  <div class="time">{{formatDate this.startTimeMillis 'month'}} {{formatDate this.startTimeMillis 'dom'}} {{formatDate this.startTimeMillis 'time'}}</div>
                 </div>
                 <div class="changeset-box" cbwf-controller="run-changesets" objectUrl="{{this._links.changesets.href}}"></div>
                 {{else}}
-                <div class="stage-start-time">
-                  <div class="date">{{formatDate this.startTimeMillis 'month'}} {{formatDate this.startTimeMillis 'dom'}}</div>
-                  <div class="time">{{formatDate this.startTimeMillis 'time'}}</div>
+                <div>
+                    <table border="1">
+        <tr>
+          <td>build:</td><td style="text-align: center;"><a href="">#15</a></td><td>author:</td><td style="text-align: center;">Sheshagiri</td>
+        </tr>
+        <tr>
+          <td>time:</td><td style="text-align: center;">Aug 15 21:00:05 </td><td>hash:</td><td style="text-align: center;">aa78833e6771933eb30678b82c80508dc66da8d1</td>
+        </tr>
+        <tr style="background-color:#FFFFFF">
+          <td>environment:</td><td style="text-align: center;">Development</td><td>branch</td><td style="text-align: center;">development-branch-git</td>
+        </tr>
+        <tr>
+          <td>message:</td><td colspan="3" style="text-align: center;">Why did the cat cross the road.</td>
+        </tr>
+        </table>
                 </div>
-                <div class="changeset-box no-changes">No Changes Found.</div>
                 {{/if}}
                 <div class="stage-end-icons extension-dock">
                   {{#if this._links.artifacts}}
